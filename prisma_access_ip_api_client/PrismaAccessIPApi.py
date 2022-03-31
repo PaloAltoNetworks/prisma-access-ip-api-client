@@ -1,6 +1,4 @@
-from sqlite3 import DataError
 
-from click import UsageError
 from .logger import logger
 import json
 import logging
@@ -122,14 +120,14 @@ class PrismaAccessIPApi():
         """
         if service_type not in ["all", "remote_network", "gp_gateway", "gp_portal", "clean_pipe", "swg_proxy"]:
             logger.error(f"{service_type} is not a valid service-type")
-            raise UsageError(f"{service_type} is not a valid service-type")
+            raise ValueError(f"{service_type} is not a valid service-type")
         if address_type not in ["all", "active", "reserved", "service_ip", "auth_cache_service", "network_load_balancer"]:
             logger.error(f"{address_type} is not a valid address-type")
-            raise UsageError(f"{address_type} is not a valid address-type")
+            raise ValueError(f"{address_type} is not a valid address-type")
         if action_type is not None and service_type != "gp_gateway":
             logger.error(
                 "Action-Type is only valid for service-type gp_gateway")
-            raise UsageError(
+            raise ValueError(
                 "Action-Type is only valid for service-type gp_gateway")
         headers = {
             "header-api-key": self.key,
