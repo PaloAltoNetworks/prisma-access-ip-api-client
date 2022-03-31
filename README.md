@@ -3,6 +3,10 @@ Tool to retrieve Palo Alto Prisma Access IP Addresses through API.
 API Details: https://docs.paloaltonetworks.com/prisma/prisma-access/prisma-access-panorama-admin/prisma-access-overview/prisma-access-infrastructure-ip-addresses/run-the-api-script-used-to-retrieve-ip-addresses
 
 # Installation
+You need first to have a working installation of python (> 3.6). Please refer to https://www.python.org/downloads/  
+  
+Once python is installed, you should have a "pip" command available in your default shell. This is the python package installer.
+
 This script can be installed via pip:
 ```
 pip install -U git+https://github.com/PaloAltoNetworks/prisma-access-ip-api-client.git
