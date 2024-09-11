@@ -24,8 +24,8 @@ On windows for example, you need to have your python install in PATH:
 You can also run directly from the run.py script
 
 ```
-python .\run.py -h
-usage: run.py [-h] [-k KEY] [-s {all,remote_network,gp_gateway,gp_portal,clean_pipe,swg_proxy}] [-a {all,active,reserved,service_ip,auth_cache_service,network_load_balancer}] [-c {pre_allocate}] [-l {all,deployed}] [-v] [-f {csv,json,xml}] [-o OUTPUT] [-i] [-e ENV] [--silent]
+python3 run.py -h
+usage: run.py [-h] [-k KEY] [-s {all,remote_network,gp_gateway,gp_portal,clean_pipe,swg_proxy}] [-a {all,active,reserved,service_ip,auth_cache_service,network_load_balancer}] [-c {pre_allocate}] [-l {all,deployed}] [-v] [-f {csv,json,xml}] [-o OUTPUT] [-i] [-e ENV] [-n] [-v4] [-v6] [--silent]
 
 options:
   -h, --help            show this help message and exit
@@ -46,6 +46,9 @@ options:
   -i, --ignore-ssl-warnings
                         Ignore SSL Warnings. NOT RECOMMENDED. ONLY USE WITH CAUTION
   -e ENV, --env ENV     Env for URL: api.{env}.datapath.prismaaccess.com. Default = prod
+  -n, --no-subnets      Do not print subnets, only addresses
+  -v4                   Print only IPv4
+  -v6                   Print only IPv6
   --silent              Suppress logging (Except for error)
 ```
 Note:  
