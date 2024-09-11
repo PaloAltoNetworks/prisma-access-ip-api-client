@@ -30,6 +30,9 @@ def main():
     parser.add_argument('-o', '--output', help='Output File (By default writes to terminal)')            
     parser.add_argument('-i', '--ignore-ssl-warnings', action='store_true', help='Ignore SSL Warnings. NOT RECOMMENDED. ONLY USE WITH CAUTION')    
     parser.add_argument('-e', '--env', default="prod", help='Env for URL: api.{env}.datapath.prismaaccess.com. Default = prod')   
+    parser.add_argument('-n', '--no-subnets', default=False, help='Do not print subnets, only addresses', action='store_true')  
+    parser.add_argument('-v4', default=False, help='Print only IPv4', action='store_true')  
+    parser.add_argument('-v6', default=False, help='Print only IPv6', action='store_true')  
     parser.add_argument('--silent', action='store_true', help='Suppress logging (Except for error)')   
     args = parser.parse_args()
 
@@ -49,7 +52,7 @@ def main():
     if args.silent:
         logger.setLevel(logging.ERROR)
     
-    api = PrismaAccessIPApi(API_KEY)
+    api = PrismaAccessIPApi(API_KEY, args.no_subnets, args.v4, args.v6)
     resp = api.request(args.service_type, args.address_type, args.action_type, args.location, args.ignore_ssl_warnings, args.env)
 
     if args.format=="json":
